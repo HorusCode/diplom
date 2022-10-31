@@ -37,18 +37,6 @@ class UsersTableSeeder extends Seeder
                 'employee_id' => 3,
                 'password' => Hash::make('1234')
             ],
-            [
-                'firstname' => 'CallFirstName',
-                'lastname' => 'CallLastName',
-                'patronymic' => 'CallPatronymic',
-                'phone' => '89061220846',
-                'passport_number' => 123456,
-                'passport_series' => 1234,
-                'login' => 'call',
-                'email' => 'horusm99@gmail.com',
-                'employee_id' => 1,
-                'password' => Hash::make('1234')
-            ]
         ];
 
         for($i = 0; $i < 5; $i++) {

@@ -14,9 +14,6 @@ class EmployeeTableSeeder extends Seeder
     {
         $data = [
             [
-                'name' => 'call_operator'
-            ],
-            [
                 'name' => 'client_operator'
             ],
             [
