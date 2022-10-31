@@ -19,15 +19,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install composer dependencies
-        run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+      - run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
       - name: Install npm dependencies
-        run: npm install
+      - run: npm install
       - name: Copy .env
-        run: composer run post-root-package-install
+      - run: composer run post-root-package-install
       - name: Generate key
-        run: composer run post-create-project-cmd
+      - run: composer run post-create-project-cmd
       - name: Set "diplom" database in var DB_DATABASE
-        env:
+      - env:
           DB_DATABASE: diplom
   build-js-production:
     name: Build JavaScript/CSS for PRODUCTION Server
@@ -36,12 +36,12 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: NPM Build
-        run: |
+      - run: |
           npm install
           npm run production
       - name: Put built assets in Artifacts
-        uses: actions/upload-artifact@v1
-        with:
+      - uses: actions/upload-artifact@v1
+      - with:
           name: assets
           path: public
   deploy-production:
@@ -51,22 +51,22 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Fetch built assets from Artifacts
-        uses: actions/download-artifact@v3
-        with:
+      - uses: actions/download-artifact@v3
+      - with:
           name: assets
           path: public
       - name: Setup PHP
-        uses: shivammathur/setup-php@master
-        with:
+      - uses: shivammathur/setup-php@master
+      - with:
           php-version: 7.2
           extension-csv: mbstring, bcmath
       - name: Composer install
-        run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+      - run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
       - name: Setup Deployer
-        uses: atymic/deployer-php-action@master
+      - uses: atymic/deployer-php-action@master
       - name: Deploy to PRODUCTION Server
-        env:
+      - env:
           DOT_ENV: ${{ secrets.DOT_ENV_PRODUCTION }}
-        run: dep deploy production
+      - run: dep deploy production
 
 
