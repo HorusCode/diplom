@@ -17,7 +17,8 @@ jobs:
         ports:
           - 3306
     steps:
-      - uses: actions/checkout@v3
+      - name: Check out repository code
+        uses: actions/checkout@v3
       - name: Install composer dependencies
       - run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
       - name: Install npm dependencies
