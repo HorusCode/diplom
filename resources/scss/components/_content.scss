@@ -1,0 +1,14 @@
+.grid-main {
+  .w-content {
+    grid-area: c;
+    margin: $grid-gap;
+    &__header {
+      padding: $content-padding;
+      align-self: center;
+    }
+    &__body {
+      padding: $content-padding;
+    }
+  }
+}
+

@@ -1,0 +1,19 @@
+.header {
+  height: 5.5rem;
+  display: flex;
+  max-width: 100%;
+  grid-area: h;
+  padding: 0 $margin-gap;
+  align-items: center;
+  @include box();
+  border-radius: 0;
+  .logo--image {
+    width:80px;
+    height: 80px;
+  }
+}
+.header-items {
+  display: flex;
+  .header-item:first-child > .btn {margin-left: 0}
+  .header-item:last-child > .btn {margin-right: 0}
+}
